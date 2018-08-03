@@ -424,7 +424,6 @@ class Features : Library() {
          * @param coefficient The coefficient to extract from the FFT.
          * @return Array of Arrays with:
          *
-         *
          * real        The real part of the coefficient.
          * imag        The imaginary part of the coefficient.
          * abs         The absolute value of the coefficient.
@@ -815,7 +814,6 @@ class Features : Library() {
          * \(x_t\) and \(x_{t-k}\), adjusted for the intermediate variables \(\lbrace x_{t-1}, \ldots, x_{t-k+1}
          * \rbrace\) (1). Following (2), it can be defined as:
          *
-         *
          * \[
          * \alpha_k = \frac{ Cov(x_t, x_{t-k} | x_{t-1}, \ldots, x_{t-k+1})}
          * {\sqrt{ Var(x_t | x_{t-1}, \ldots, x_{t-k+1}) Var(x_{t-k} | x_{t-1}, \ldots, x_{t-k+1} )}}
@@ -826,7 +824,6 @@ class Features : Library() {
          * It is said in (1) that "for an AR(p), the partial autocorrelations \( \alpha_k \) will be nonzero for
          * \( k \leq p \) and zero for \( k&gt;p \)."
          * With this property, it is used to determine the lag of an AR-Process.
-         *
          *
          * 1. Box, G. E., Jenkins, G. M., Reinsel, G. C., &amp; Ljung, G. M. (2015).
          * Time series analysis: forecasting and control. John Wiley &amp; Sons.
@@ -938,7 +935,6 @@ class Features : Library() {
          * Calculates a factor which is 1 if all values in the time series occur only once, and below one if this is
          * not the case. In principle, it just returns:
          *
-         *
          * \[
          * \frac{\textit{number_unique_values}}{\textit{number_values}}
          * \]
@@ -987,7 +983,6 @@ class Features : Library() {
         /**
          * Estimates the cross power spectral density of the time series array at different frequencies. To do so, the
          * time series is first shifted from the time domain to the frequency domain.
-         *
          *
          * Welch's method computes an estimate of the power spectral density by dividing the data into overlapping
          * segments, computing a modified periodogram for each segment and averaging the periodograms.
@@ -1084,7 +1079,6 @@ class Features : Library() {
          * \]
          * where \f$ \mathbb{E} \f$ is the mean and \f$ L \f$ is the lag operator. It was proposed in (1) as a promising
          * feature to extract from time series.
-         *
          *
          * 1. Fulcher, B.D., Jones, N.S. (2014). Highly comparative feature-based time-series classification.
          * Knowledge and Data Engineering, IEEE Transactions on 26, 3026-3037.

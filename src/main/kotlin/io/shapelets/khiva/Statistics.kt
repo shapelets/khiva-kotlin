@@ -60,28 +60,22 @@ class Statistics : Library() {
          * the population from which the sample is taken are 0, so that any observed correlations in the data result from
          * randomness of the sampling process). Data are no independently distributed, if they exhibit serial correlation.
          *
-         *
          * The test statistic is:
-         *
          *
          * \[
          * Q = n\left(n+2\right)\sum_{k=1}^h\frac{\hat{\rho}^2_k}{n-k}
          * \]
          *
-         *
          * where ''n'' is the sample size, \(\hat{\rho}k \) is the sample autocorrelation at lag ''k'', and ''h'' is the
          * number of lags being tested. Under \( H_0 \) the statistic Q follows a \(\chi^2{(h)} \). For significance level
          * \(\alpha\), the \(critical region\) for rejection of the hypothesis of randomness is:
-         *
          *
          * \[
          * Q &gt; \chi_{1-\alpha,h}^2
          * \]
          *
-         *
          * where \( \chi_{1-\alpha,h}^2 \) is the \(\alpha\)-quantile of the chi-squared distribution with ''h'' degrees of
          * freedom.
-         *
          *
          * 1. G. M. Ljung  G. E. P. Box (1978). On a measure of lack of fit in time series models.
          * Biometrika, Volume 65, Issue 2, 1 August 1978, Pages 297-303.

@@ -53,7 +53,6 @@ class Dimensionality : Library() {
         /**
          * Calculates the number of Perceptually Important Points (PIP) in the time series.
          *
-         *
          * 1. Fu TC, Chung FL, Luk R, and Ng CM. Representing financial time series based on data point importance.
          * Engineering Applications of Artificial Intelligence, 21(2):277-300, 2008.
          *
@@ -106,10 +105,8 @@ class Dimensionality : Library() {
          * approximated by a series of points. It reduces a set of points depending on the perpendicular distance of the
          * points and epsilon, the greater epsilon, more points are deleted.
          *
-         *
          * 1. Urs Ramer, "An iterative procedure for the polygonal approximation of plane curves", Computer Graphics and
          * Image Processing, 1(3), 244-256 (1972) doi:10.1016/S0146-664X(72)80017-0.
-         *
          *
          * 2. David Douglas &amp; Thomas Peucker, "Algorithms for the reduction of the number of points required to represent a
          * digitized line or its caricature", The Canadian Cartographer 10(2), 112-122 (1973)
@@ -135,7 +132,6 @@ class Dimensionality : Library() {
          * data-structures and string-manipulation algorithms in computer science such as hashing, regular expression, pattern
          * matching, suffix trees, and grammatical inference.
          *
-         *
          * 1. Lin, J., Keogh, E., Lonardi, S. &amp; Chiu, B. (2003) A Symbolic Representation of Time Series, with Implications for
          * Streaming Algorithms. In proceedings of the 8th ACM SIGMOD Workshop on Research Issues in Data Mining and Knowledge
          * Discovery. San Diego, CA. June 13.
@@ -153,7 +149,6 @@ class Dimensionality : Library() {
         /**
          * Reduces a set of points by applying the Visvalingam method (minimun triangle area) until the number
          * of points is reduced to numPoints.
-         *
          *
          * 1. M. Visvalingam and J. D. Whyatt, Line generalisation by repeated elimination of points,
          * The Cartographic Journal, 1993.

@@ -681,8 +681,3 @@ class Array : Library, AutoCloseable {
         }
     }
 }
-/**
- * Transposes this array without conjugating it.
- *
- * @return The transposed array.
- */
