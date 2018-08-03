@@ -1,0 +1,96 @@
+# Copyright (c) 2018 Shapelets.io
+#
+# This Source Code Form is subject to the terms of the Mozilla Public
+# License, v. 2.0. If a copy of the MPL was not distributed with this
+# file, You can obtain one at http://mozilla.org/MPL/2.0/.
+
+language: java
+sudo: required
+
+matrix:
+  include:
+    - os: linux
+      dist: trusty
+      env: JDK='Oracle JDK 8'
+      jdk: oraclejdk8
+      cache:
+       directories:
+         - ${TRAVIS_BUILD_DIR}/installers
+         - ${HOME}/.m2
+         - ${HOME}/.conan
+         - ${TRAVIS_BUILD_DIR}/cmake
+      before_install:
+        - jdk_switcher use oraclejdk8
+      install:
+        - source .CI/travis/install-arrayfire.sh
+        - source .CI/travis/install-khiva.sh
+      script:
+        - source .CI/travis/build-and-test.sh
+      after_success:
+        - bash <(curl -s https://codecov.io/bash) -cF Linux
+
+    - os: linux
+      dist: trusty
+      env: JDK='Oracle JDK 9'
+      jdk: oraclejdk9
+      cache:
+        directories:
+          - ${TRAVIS_BUILD_DIR}/installers
+          - ${HOME}/.m2
+          - ${HOME}/.conan
+          - ${TRAVIS_BUILD_DIR}/cmake
+      before_install:
+        - jdk_switcher use oraclejdk9
+      install:
+        - source .CI/travis/install-arrayfire.sh
+        - source .CI/travis/install-khiva.sh
+      script:
+        - source .CI/travis/build-and-test.sh
+
+    - os: osx
+      osx_image: xcode9.3
+      env:
+        - JDK='Oracle JDK 8'
+      cache:
+        directories:
+          - ${TRAVIS_BUILD_DIR}/installers
+          - ${HOME}/.m2
+          - ${HOME}/.conan
+          - ${TRAVIS_BUILD_DIR}/cmake
+          - ${HOME}/Library/Caches/Homebrew
+          - ${HOME}/.pyenv
+      install:
+        - source .CI/travis/install-arrayfire.sh
+        - source .CI/travis/install-khiva.sh
+        - brew update
+        - brew tap caskroom/cask
+        - brew tap caskroom/versions
+        - brew cask info java8
+        - brew cask install java8
+      script:
+        - source .CI/travis/build-and-test.sh
+      after_success:
+        - bash <(curl -s https://codecov.io/bash) -cF MacOS
+
+    - os: osx
+      osx_image: xcode9.3
+      env:
+        - JDK='Oracle JDK 9'
+      cache:
+       directories:
+         - ${TRAVIS_BUILD_DIR}/installers
+         - ${HOME}/.m2
+         - ${HOME}/.conan
+         - ${TRAVIS_BUILD_DIR}/cmake
+         - ${HOME}/Library/Caches/Homebrew
+         - ${HOME}/.pyenv
+      install:
+        - source .CI/travis/install-arrayfire.sh
+        - source .CI/travis/install-khiva.sh
+        - brew update
+        - brew tap caskroom/cask
+        - brew tap caskroom/versions
+        - brew cask info java
+        - brew cask install java
+      script:
+        - source .CI/travis/build-and-test.sh
