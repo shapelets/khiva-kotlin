@@ -14,7 +14,8 @@ package io.shapelets.khiva
  */
 class Regression : Library() {
     companion object {
-        @JvmStatic private external fun linear(xssRef: Long, yssRef: Long): LongArray
+        @JvmStatic
+        private external fun linear(xssRef: Long, yssRef: Long): LongArray
 
         /**
          * Calculates a linear least-squares regression for two sets of measurements. Both arrays should have the same

@@ -14,21 +14,29 @@ package io.shapelets.khiva
  */
 class Normalization : Library() {
     companion object {
-        @JvmStatic private external fun znorm(ref: Long, epsilon: Double): LongArray
+        @JvmStatic
+        private external fun znorm(ref: Long, epsilon: Double): LongArray
 
-        @JvmStatic private external fun znormInPlace(ref: Long, epsilon: Double): Long
+        @JvmStatic
+        private external fun znormInPlace(ref: Long, epsilon: Double): Long
 
-        @JvmStatic private external fun maxMinNorm(ref: Long, high: Double, low: Double, epsilon: Double): LongArray
+        @JvmStatic
+        private external fun maxMinNorm(ref: Long, high: Double, low: Double, epsilon: Double): LongArray
 
-        @JvmStatic private external fun maxMinNormInPlace(ref: Long, high: Double, low: Double, epsilon: Double): Long
+        @JvmStatic
+        private external fun maxMinNormInPlace(ref: Long, high: Double, low: Double, epsilon: Double): Long
 
-        @JvmStatic private external fun decimalScalingNorm(ref: Long): LongArray
+        @JvmStatic
+        private external fun decimalScalingNorm(ref: Long): LongArray
 
-        @JvmStatic private external fun decimalScalingNormInPlace(ref: Long): Long
+        @JvmStatic
+        private external fun decimalScalingNormInPlace(ref: Long): Long
 
-        @JvmStatic private external fun meanNorm(ref: Long): LongArray
+        @JvmStatic
+        private external fun meanNorm(ref: Long): LongArray
 
-        @JvmStatic private external fun meanNormInPlace(ref: Long): Long
+        @JvmStatic
+        private external fun meanNormInPlace(ref: Long): Long
 
         /**
          * Normalizes the given time series according to its maximum value and adjusts each value within the range (-1, 1).

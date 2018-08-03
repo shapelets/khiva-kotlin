@@ -14,21 +14,29 @@ package io.shapelets.khiva
  */
 class Statistics : Library() {
     companion object {
-        @JvmStatic private external fun covariance(ref: Long, unbiased: Boolean): LongArray
+        @JvmStatic
+        private external fun covariance(ref: Long, unbiased: Boolean): LongArray
 
-        @JvmStatic private external fun moment(ref: Long, k: Int): LongArray
+        @JvmStatic
+        private external fun moment(ref: Long, k: Int): LongArray
 
-        @JvmStatic private external fun sampleStdev(ref: Long): LongArray
+        @JvmStatic
+        private external fun sampleStdev(ref: Long): LongArray
 
-        @JvmStatic private external fun kurtosis(ref: Long): LongArray
+        @JvmStatic
+        private external fun kurtosis(ref: Long): LongArray
 
-        @JvmStatic private external fun ljungBox(ref: Long, lags: Long): LongArray
+        @JvmStatic
+        private external fun ljungBox(ref: Long, lags: Long): LongArray
 
-        @JvmStatic private external fun skewness(ref: Long): LongArray
+        @JvmStatic
+        private external fun skewness(ref: Long): LongArray
 
-        @JvmStatic private external fun quantile(ref: Long, refQ: Long, precision: Float): LongArray
+        @JvmStatic
+        private external fun quantile(ref: Long, refQ: Long, precision: Float): LongArray
 
-        @JvmStatic private external fun quantilesCut(ref: Long, quantiles: Float, precision: Float): LongArray
+        @JvmStatic
+        private external fun quantilesCut(ref: Long, quantiles: Float, precision: Float): LongArray
 
         /**
          * Returns the covariance matrix of the time series contained in tss.

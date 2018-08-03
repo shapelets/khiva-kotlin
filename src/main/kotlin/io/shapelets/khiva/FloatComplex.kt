@@ -18,7 +18,7 @@ import kotlin.math.sign
  * @param real Real value.
  * @param imag Imaginary value.
  */
-data class FloatComplex (var real: Float = 0.0f, var imag: Float = 0.0f) {
+data class FloatComplex(var real: Float = 0.0f, var imag: Float = 0.0f) {
     /**
      * toString function.
      *

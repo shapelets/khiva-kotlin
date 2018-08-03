@@ -14,7 +14,8 @@ package io.shapelets.khiva
  */
 class Linalg : Library() {
     companion object {
-        @JvmStatic private external fun lls(refA: Long, refB: Long): LongArray
+        @JvmStatic
+        private external fun lls(refA: Long, refB: Long): LongArray
 
         /**
          * Calculates the minimum norm least squares solution \(x\) \((\left\lVert{A·x - b}\right\rVert^2)\) to

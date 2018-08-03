@@ -18,7 +18,7 @@ import kotlin.math.sign
  * @param real Real value.
  * @param imag Imaginary value.
  */
-data class DoubleComplex (var real: Double = 0.0, var imag: Double = 0.0) {
+data class DoubleComplex(var real: Double = 0.0, var imag: Double = 0.0) {
     /**
      * toString function.
      *

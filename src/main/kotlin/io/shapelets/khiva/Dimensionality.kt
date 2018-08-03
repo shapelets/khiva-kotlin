@@ -15,19 +15,26 @@ package io.shapelets.khiva
 class Dimensionality : Library() {
     companion object {
 
-        @JvmStatic private external fun paa(ref: Long, bins: Int): LongArray
+        @JvmStatic
+        private external fun paa(ref: Long, bins: Int): LongArray
 
-        @JvmStatic private external fun pip(ref: Long, numberIPs: Int): LongArray
+        @JvmStatic
+        private external fun pip(ref: Long, numberIPs: Int): LongArray
 
-        @JvmStatic private external fun PLABottomUp(ts: Long, maxError: Float): LongArray
+        @JvmStatic
+        private external fun PLABottomUp(ts: Long, maxError: Float): LongArray
 
-        @JvmStatic private external fun PLASlidingWindow(ts: Long, maxError: Float): LongArray
+        @JvmStatic
+        private external fun PLASlidingWindow(ts: Long, maxError: Float): LongArray
 
-        @JvmStatic private external fun ramerDouglasPeucker(ref: Long, epsilon: Double): LongArray
+        @JvmStatic
+        private external fun ramerDouglasPeucker(ref: Long, epsilon: Double): LongArray
 
-        @JvmStatic private external fun sax(ref: Long, alphabetSize: Int): LongArray
+        @JvmStatic
+        private external fun sax(ref: Long, alphabetSize: Int): LongArray
 
-        @JvmStatic private external fun visvalingam(ref: Long, numPoints: Int): LongArray
+        @JvmStatic
+        private external fun visvalingam(ref: Long, numPoints: Int): LongArray
 
         /**
          * Piecewise Aggregate Approximation (PAA) approximates a time series \(X\) of length \(n\) into vector

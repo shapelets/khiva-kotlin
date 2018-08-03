@@ -14,13 +14,17 @@ package io.shapelets.khiva
  */
 class Matrix : Library() {
     companion object {
-        @JvmStatic private external fun stomp(a: Long, b: Long, m: Long): LongArray
+        @JvmStatic
+        private external fun stomp(a: Long, b: Long, m: Long): LongArray
 
-        @JvmStatic private external fun stompSelfJoin(a: Long, m: Long): LongArray
+        @JvmStatic
+        private external fun stompSelfJoin(a: Long, m: Long): LongArray
 
-        @JvmStatic private external fun findBestNMotifs(profile: Long, index: Long, m: Long, n: Long, selfJoin: Boolean): LongArray
+        @JvmStatic
+        private external fun findBestNMotifs(profile: Long, index: Long, m: Long, n: Long, selfJoin: Boolean): LongArray
 
-        @JvmStatic private external fun findBestNDiscords(profile: Long, index: Long, m: Long, n: Long, selfJoin: Boolean): LongArray
+        @JvmStatic
+        private external fun findBestNDiscords(profile: Long, index: Long, m: Long, n: Long, selfJoin: Boolean): LongArray
 
         /**
          * STOMP algorithm to calculate the matrix profile between 'arrA' and 'arrB' using a subsequence length

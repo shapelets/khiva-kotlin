@@ -15,133 +15,197 @@ package io.shapelets.khiva
  */
 class Features : Library() {
     companion object {
-        @JvmStatic private external fun absEnergy(ref: Long): LongArray
+        @JvmStatic
+        private external fun absEnergy(ref: Long): LongArray
 
-        @JvmStatic private external fun absoluteSumOfChanges(ref: Long): LongArray
+        @JvmStatic
+        private external fun absoluteSumOfChanges(ref: Long): LongArray
 
-        @JvmStatic private external fun aggregatedAutocorrelation(ref: Long, aggregationFunction: Int): LongArray
+        @JvmStatic
+        private external fun aggregatedAutocorrelation(ref: Long, aggregationFunction: Int): LongArray
 
-        @JvmStatic private external fun aggregatedLinearTrend(ref: Long, chunkSize: Long, aggregationFunction: Int): LongArray
+        @JvmStatic
+        private external fun aggregatedLinearTrend(ref: Long, chunkSize: Long, aggregationFunction: Int): LongArray
 
-        @JvmStatic private external fun approximateEntropy(ref: Long, m: Int, r: Float): LongArray
+        @JvmStatic
+        private external fun approximateEntropy(ref: Long, m: Int, r: Float): LongArray
 
-        @JvmStatic private external fun crossCovariance(refXss: Long, refYss: Long, unbiased: Boolean): LongArray
+        @JvmStatic
+        private external fun crossCovariance(refXss: Long, refYss: Long, unbiased: Boolean): LongArray
 
-        @JvmStatic private external fun autoCovariance(ref: Long, unbiased: Boolean): LongArray
+        @JvmStatic
+        private external fun autoCovariance(ref: Long, unbiased: Boolean): LongArray
 
-        @JvmStatic private external fun crossCorrelation(refXss: Long, refYss: Long, unbiased: Boolean): LongArray
+        @JvmStatic
+        private external fun crossCorrelation(refXss: Long, refYss: Long, unbiased: Boolean): LongArray
 
-        @JvmStatic private external fun autoCorrelation(ref: Long, maxLag: Long, unbiased: Boolean): LongArray
+        @JvmStatic
+        private external fun autoCorrelation(ref: Long, maxLag: Long, unbiased: Boolean): LongArray
 
-        @JvmStatic private external fun binnedEntropy(ref: Long, maxBins: Long): LongArray
+        @JvmStatic
+        private external fun binnedEntropy(ref: Long, maxBins: Long): LongArray
 
-        @JvmStatic private external fun c3(ref: Long, lag: Long): LongArray
+        @JvmStatic
+        private external fun c3(ref: Long, lag: Long): LongArray
 
-        @JvmStatic private external fun cidCe(ref: Long, zNormalize: Boolean): LongArray
+        @JvmStatic
+        private external fun cidCe(ref: Long, zNormalize: Boolean): LongArray
 
-        @JvmStatic private external fun countAboveMean(ref: Long): LongArray
+        @JvmStatic
+        private external fun countAboveMean(ref: Long): LongArray
 
-        @JvmStatic private external fun countBelowMean(ref: Long): LongArray
+        @JvmStatic
+        private external fun countBelowMean(ref: Long): LongArray
 
-        @JvmStatic private external fun cwtCoefficients(ref: Long, refW: Long, coeff: Int, w: Int): LongArray
+        @JvmStatic
+        private external fun cwtCoefficients(ref: Long, refW: Long, coeff: Int, w: Int): LongArray
 
-        @JvmStatic private external fun energyRatioByChunks(ref: Long, numSegments: Long, segmentFocus: Long): LongArray
+        @JvmStatic
+        private external fun energyRatioByChunks(ref: Long, numSegments: Long, segmentFocus: Long): LongArray
 
-        @JvmStatic private external fun fftAggregated(ref: Long): LongArray
+        @JvmStatic
+        private external fun fftAggregated(ref: Long): LongArray
 
-        @JvmStatic private external fun fftCoefficient(ref: Long, coefficient: Long): LongArray
+        @JvmStatic
+        private external fun fftCoefficient(ref: Long, coefficient: Long): LongArray
 
-        @JvmStatic private external fun firstLocationOfMaximum(ref: Long): LongArray
+        @JvmStatic
+        private external fun firstLocationOfMaximum(ref: Long): LongArray
 
-        @JvmStatic private external fun firstLocationOfMinimum(ref: Long): LongArray
+        @JvmStatic
+        private external fun firstLocationOfMinimum(ref: Long): LongArray
 
-        @JvmStatic private external fun friedrichCoefficients(ref: Long, m: Int, r: Float): LongArray
+        @JvmStatic
+        private external fun friedrichCoefficients(ref: Long, m: Int, r: Float): LongArray
 
-        @JvmStatic private external fun hasDuplicates(ref: Long): LongArray
+        @JvmStatic
+        private external fun hasDuplicates(ref: Long): LongArray
 
-        @JvmStatic private external fun hasDuplicateMax(ref: Long): LongArray
+        @JvmStatic
+        private external fun hasDuplicateMax(ref: Long): LongArray
 
-        @JvmStatic private external fun hasDuplicateMin(ref: Long): LongArray
+        @JvmStatic
+        private external fun hasDuplicateMin(ref: Long): LongArray
 
-        @JvmStatic private external fun indexMassQuantile(ref: Long, q: Float): LongArray
+        @JvmStatic
+        private external fun indexMassQuantile(ref: Long, q: Float): LongArray
 
-        @JvmStatic private external fun kurtosis(ref: Long): LongArray
+        @JvmStatic
+        private external fun kurtosis(ref: Long): LongArray
 
-        @JvmStatic private external fun largeStandardDeviation(ref: Long, r: Float): LongArray
+        @JvmStatic
+        private external fun largeStandardDeviation(ref: Long, r: Float): LongArray
 
-        @JvmStatic private external fun lastLocationOfMaximum(ref: Long): LongArray
+        @JvmStatic
+        private external fun lastLocationOfMaximum(ref: Long): LongArray
 
-        @JvmStatic private external fun lastLocationOfMinimum(ref: Long): LongArray
+        @JvmStatic
+        private external fun lastLocationOfMinimum(ref: Long): LongArray
 
-        @JvmStatic private external fun length(ref: Long): LongArray
+        @JvmStatic
+        private external fun length(ref: Long): LongArray
 
-        @JvmStatic private external fun linearTrend(ref: Long): LongArray
+        @JvmStatic
+        private external fun linearTrend(ref: Long): LongArray
 
-        @JvmStatic private external fun localMaximals(ref: Long): LongArray
+        @JvmStatic
+        private external fun localMaximals(ref: Long): LongArray
 
-        @JvmStatic private external fun longestStrikeAboveMean(ref: Long): LongArray
+        @JvmStatic
+        private external fun longestStrikeAboveMean(ref: Long): LongArray
 
-        @JvmStatic private external fun longestStrikeBelowMean(ref: Long): LongArray
+        @JvmStatic
+        private external fun longestStrikeBelowMean(ref: Long): LongArray
 
-        @JvmStatic private external fun maxLangevinFixedPoint(ref: Long, m: Int, r: Float): LongArray
+        @JvmStatic
+        private external fun maxLangevinFixedPoint(ref: Long, m: Int, r: Float): LongArray
 
-        @JvmStatic private external fun maximum(ref: Long): LongArray
+        @JvmStatic
+        private external fun maximum(ref: Long): LongArray
 
-        @JvmStatic private external fun mean(ref: Long): LongArray
+        @JvmStatic
+        private external fun mean(ref: Long): LongArray
 
-        @JvmStatic private external fun meanAbsoluteChange(ref: Long): LongArray
+        @JvmStatic
+        private external fun meanAbsoluteChange(ref: Long): LongArray
 
-        @JvmStatic private external fun meanChange(ref: Long): LongArray
+        @JvmStatic
+        private external fun meanChange(ref: Long): LongArray
 
-        @JvmStatic private external fun meanSecondDerivativeCentral(ref: Long): LongArray
+        @JvmStatic
+        private external fun meanSecondDerivativeCentral(ref: Long): LongArray
 
-        @JvmStatic private external fun median(ref: Long): LongArray
+        @JvmStatic
+        private external fun median(ref: Long): LongArray
 
-        @JvmStatic private external fun minimum(ref: Long): LongArray
+        @JvmStatic
+        private external fun minimum(ref: Long): LongArray
 
-        @JvmStatic private external fun numberCrossingM(ref: Long, m: Int): LongArray
+        @JvmStatic
+        private external fun numberCrossingM(ref: Long, m: Int): LongArray
 
-        @JvmStatic private external fun numberCwtPeaks(ref: Long, maxW: Int): LongArray
+        @JvmStatic
+        private external fun numberCwtPeaks(ref: Long, maxW: Int): LongArray
 
-        @JvmStatic private external fun numberPeaks(ref: Long, n: Int): LongArray
+        @JvmStatic
+        private external fun numberPeaks(ref: Long, n: Int): LongArray
 
-        @JvmStatic private external fun partialAutocorrelation(ref: Long, refLags: Long): LongArray
+        @JvmStatic
+        private external fun partialAutocorrelation(ref: Long, refLags: Long): LongArray
 
-        @JvmStatic private external fun percentageOfReoccurringDatapointsToAllDatapoints(ref: Long, isSorted: Boolean): LongArray
+        @JvmStatic
+        private external fun percentageOfReoccurringDatapointsToAllDatapoints(ref: Long, isSorted: Boolean): LongArray
 
-        @JvmStatic private external fun percentageOfReoccurringValuesToAllValues(ref: Long, isSorted: Boolean): LongArray
+        @JvmStatic
+        private external fun percentageOfReoccurringValuesToAllValues(ref: Long, isSorted: Boolean): LongArray
 
-        @JvmStatic private external fun quantile(ref: Long, refQ: Long, precision: Float): LongArray
+        @JvmStatic
+        private external fun quantile(ref: Long, refQ: Long, precision: Float): LongArray
 
-        @JvmStatic private external fun rangeCount(ref: Long, min: Float, max: Float): LongArray
+        @JvmStatic
+        private external fun rangeCount(ref: Long, min: Float, max: Float): LongArray
 
-        @JvmStatic private external fun ratioBeyondRSigma(ref: Long, r: Float): LongArray
+        @JvmStatic
+        private external fun ratioBeyondRSigma(ref: Long, r: Float): LongArray
 
-        @JvmStatic private external fun ratioValueNumberToTimeSeriesLength(ref: Long): LongArray
+        @JvmStatic
+        private external fun ratioValueNumberToTimeSeriesLength(ref: Long): LongArray
 
-        @JvmStatic private external fun sampleEntropy(ref: Long): LongArray
+        @JvmStatic
+        private external fun sampleEntropy(ref: Long): LongArray
 
-        @JvmStatic private external fun skewness(ref: Long): LongArray
+        @JvmStatic
+        private external fun skewness(ref: Long): LongArray
 
-        @JvmStatic private external fun spktWelchDensity(ref: Long, coeff: Int): LongArray
+        @JvmStatic
+        private external fun spktWelchDensity(ref: Long, coeff: Int): LongArray
 
-        @JvmStatic private external fun standardDeviation(ref: Long): LongArray
+        @JvmStatic
+        private external fun standardDeviation(ref: Long): LongArray
 
-        @JvmStatic private external fun sumOfReoccurringDatapoints(ref: Long, isSorted: Boolean): LongArray
+        @JvmStatic
+        private external fun sumOfReoccurringDatapoints(ref: Long, isSorted: Boolean): LongArray
 
-        @JvmStatic private external fun sumOfReoccurringValues(ref: Long, isSorted: Boolean): LongArray
+        @JvmStatic
+        private external fun sumOfReoccurringValues(ref: Long, isSorted: Boolean): LongArray
 
-        @JvmStatic private external fun sumValues(ref: Long): LongArray
+        @JvmStatic
+        private external fun sumValues(ref: Long): LongArray
 
-        @JvmStatic private external fun symmetryLooking(ref: Long, r: Float): LongArray
+        @JvmStatic
+        private external fun symmetryLooking(ref: Long, r: Float): LongArray
 
-        @JvmStatic private external fun timeReversalAsymmetryStatistic(ref: Long, lag: Int): LongArray
+        @JvmStatic
+        private external fun timeReversalAsymmetryStatistic(ref: Long, lag: Int): LongArray
 
-        @JvmStatic private external fun valueCount(ref: Long, v: Float): LongArray
+        @JvmStatic
+        private external fun valueCount(ref: Long, v: Float): LongArray
 
-        @JvmStatic private external fun variance(ref: Long): LongArray
+        @JvmStatic
+        private external fun variance(ref: Long): LongArray
 
-        @JvmStatic private external fun varianceLargerThanStandardDeviation(ref: Long): LongArray
+        @JvmStatic
+        private external fun varianceLargerThanStandardDeviation(ref: Long): LongArray
 
         /**
          * Calculates the sum over the square values of the time series.

@@ -14,7 +14,8 @@ package io.shapelets.khiva
  */
 class Regularization : Library() {
     companion object {
-        @JvmStatic private external fun groupBy(ref: Long, aggregationFunction: Int, nColumnsKey: Int, nColumnsValue: Int): LongArray
+        @JvmStatic
+        private external fun groupBy(ref: Long, aggregationFunction: Int, nColumnsKey: Int, nColumnsValue: Int): LongArray
 
         /**
          * Group by operation in the input array using nColumnsKey columns as group keys and nColumnsValue columns as

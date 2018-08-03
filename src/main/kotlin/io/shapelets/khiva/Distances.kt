@@ -14,15 +14,20 @@ package io.shapelets.khiva
  */
 class Distances : Library() {
     companion object {
-        @JvmStatic private external fun euclidean(ref: Long): LongArray
+        @JvmStatic
+        private external fun euclidean(ref: Long): LongArray
 
-        @JvmStatic private external fun dtw(ref: Long): LongArray
+        @JvmStatic
+        private external fun dtw(ref: Long): LongArray
 
-        @JvmStatic private external fun hamming(ref: Long): LongArray
+        @JvmStatic
+        private external fun hamming(ref: Long): LongArray
 
-        @JvmStatic private external fun manhattan(ref: Long): LongArray
+        @JvmStatic
+        private external fun manhattan(ref: Long): LongArray
 
-        @JvmStatic private external fun squaredEuclidean(ref: Long): LongArray
+        @JvmStatic
+        private external fun squaredEuclidean(ref: Long): LongArray
 
         /**
          * Calculates euclidean distances between time series.

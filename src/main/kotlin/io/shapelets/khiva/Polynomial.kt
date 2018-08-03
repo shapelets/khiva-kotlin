@@ -14,9 +14,11 @@ package io.shapelets.khiva
  */
 class Polynomial : Library() {
     companion object {
-        @JvmStatic private external fun polyfit(refX: Long, refY: Long, deg: Int): LongArray
+        @JvmStatic
+        private external fun polyfit(refX: Long, refY: Long, deg: Int): LongArray
 
-        @JvmStatic private external fun roots(ref: Long): LongArray
+        @JvmStatic
+        private external fun roots(ref: Long): LongArray
 
         /**
          * Least squares polynomial fit. Fit a polynomial \(p(x) = p(0) * x^{deg} + ... + p(deg)\) of degree \(deg\)
