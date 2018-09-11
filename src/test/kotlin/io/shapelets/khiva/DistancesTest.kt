@@ -19,8 +19,8 @@ class DistancesTest {
     @Throws(Exception::class)
     fun testEuclidean() {
         val timeSeries = floatArrayOf(0f, 1f, 2f, 3f, 4f, 5f, 6f, 7f, 8f, 9f, 10f, 11f)
-        val dims = longArrayOf(4, 3, 1, 1)
-        Array(timeSeries, dims).use { arrayOfTimeSeries ->
+        val d = longArrayOf(4, 3, 1, 1)
+        Array(timeSeries, d).use { arrayOfTimeSeries ->
             Distances.euclidean(arrayOfTimeSeries).use { b ->
                 val result = b.getData<FloatArray>()
                 Assert.assertEquals(result[0].toDouble(), 0.0, DELTA)
