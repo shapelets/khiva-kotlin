@@ -17,6 +17,23 @@ class DistancesTest {
 
     @Test
     @Throws(Exception::class)
+    fun testDwt() {
+        val timeSeries = floatArrayOf(1f, 1f, 1f, 1f, 1f, 2f, 2f, 2f, 2f, 2f, 3f, 3f, 3f, 3f, 3f, 4f, 4f, 4f, 4f, 4f, 5f, 5f, 5f, 5f, 5f)
+        val dims = longArrayOf(5, 5, 1, 1)
+        Array(timeSeries, dims).use { arrayOfTimeSeries ->
+            Distances.dtw(arrayOfTimeSeries).use { resultArray ->
+                val result = resultArray.getData<FloatArray>()
+                val expectedResult = floatArrayOf(0f, 0f, 0f, 0f, 0f, 5f, 0f, 0f, 0f, 0f, 10f, 5f, 0f, 0f, 0f, 15f, 10f, 5f, 0f, 0f, 20f, 15f, 10f, 5f, 0f)
+                Assert.assertEquals(expectedResult.size.toDouble(), result.size.toDouble(), DELTA)
+                for (i in result.indices) {
+                    Assert.assertEquals(expectedResult[i].toDouble(), result[i].toDouble(), DELTA)
+                }
+            }
+        }
+    }
+
+    @Test
+    @Throws(Exception::class)
     fun testEuclidean() {
         val timeSeries = floatArrayOf(0f, 1f, 2f, 3f, 4f, 5f, 6f, 7f, 8f, 9f, 10f, 11f)
         val d = longArrayOf(4, 3, 1, 1)
@@ -32,44 +49,6 @@ class DistancesTest {
                 Assert.assertEquals(result[6].toDouble(), 16.0, DELTA)
                 Assert.assertEquals(result[7].toDouble(), 8.0, DELTA)
                 Assert.assertEquals(result[8].toDouble(), 0.0, DELTA)
-            }
-        }
-    }
-
-    @Test
-    @Throws(Exception::class)
-    fun testSquaredEuclidean() {
-        val timeSeries = floatArrayOf(0f, 1f, 2f, 3f, 4f, 5f, 6f, 7f, 8f, 9f, 10f, 11f)
-        val dims = longArrayOf(4, 3, 1, 1)
-        Array(timeSeries, dims).use { arrayOfTimeSeries ->
-            Distances.squaredEuclidean(arrayOfTimeSeries).use { b ->
-                val result = b.getData<FloatArray>()
-                Assert.assertEquals(result[0].toDouble(), 0.0, DELTA)
-                Assert.assertEquals(result[1].toDouble(), 0.0, DELTA)
-                Assert.assertEquals(result[2].toDouble(), 0.0, DELTA)
-                Assert.assertEquals(result[3].toDouble(), 64.0, DELTA)
-                Assert.assertEquals(result[4].toDouble(), 0.0, DELTA)
-                Assert.assertEquals(result[5].toDouble(), 0.0, DELTA)
-                Assert.assertEquals(result[6].toDouble(), 256.0, DELTA)
-                Assert.assertEquals(result[7].toDouble(), 64.0, DELTA)
-                Assert.assertEquals(result[8].toDouble(), 0.0, DELTA)
-            }
-        }
-    }
-
-    @Test
-    @Throws(Exception::class)
-    fun testDwt() {
-        val timeSeries = floatArrayOf(1f, 1f, 1f, 1f, 1f, 2f, 2f, 2f, 2f, 2f, 3f, 3f, 3f, 3f, 3f, 4f, 4f, 4f, 4f, 4f, 5f, 5f, 5f, 5f, 5f)
-        val dims = longArrayOf(5, 5, 1, 1)
-        Array(timeSeries, dims).use { arrayOfTimeSeries ->
-            Distances.dtw(arrayOfTimeSeries).use { resultArray ->
-                val result = resultArray.getData<FloatArray>()
-                val expectedResult = floatArrayOf(0f, 0f, 0f, 0f, 0f, 5f, 0f, 0f, 0f, 0f, 10f, 5f, 0f, 0f, 0f, 15f, 10f, 5f, 0f, 0f, 20f, 15f, 10f, 5f, 0f)
-                Assert.assertEquals(expectedResult.size.toDouble(), result.size.toDouble(), DELTA)
-                for (i in result.indices) {
-                    Assert.assertEquals(expectedResult[i].toDouble(), result[i].toDouble(), DELTA)
-                }
             }
         }
     }
@@ -104,6 +83,44 @@ class DistancesTest {
                 for (i in result.indices) {
                     Assert.assertEquals(expectedResult[i].toDouble(), result[i].toDouble(), DELTA)
                 }
+            }
+        }
+    }
+
+    @Test
+    @Throws(Exception::class)
+    fun testSBD() {
+        val timeSeries = floatArrayOf(1f, 2f, 3f, 4f, 5f, 1f, 1f, 0f, 1f, 1f, 10f, 12f, 0f, 0f, 1f)
+        val dims = longArrayOf(5, 3, 1, 1)
+        Array(timeSeries, dims).use { a ->
+            Distances.sbd(a).use { b ->
+                val result = b.getData<FloatArray>()
+                val expectedResult = floatArrayOf(0f, 0f, 0f, 0.505025f, 0f, 0f, 0.458583f, 0.564093f, 0f)
+                Assert.assertEquals(expectedResult.size.toDouble(), result.size.toDouble(), DELTA)
+                for (i in result.indices) {
+                    Assert.assertEquals(expectedResult[i].toDouble(), result[i].toDouble(), DELTA)
+                }
+            }
+        }
+    }
+
+    @Test
+    @Throws(Exception::class)
+    fun testSquaredEuclidean() {
+        val timeSeries = floatArrayOf(0f, 1f, 2f, 3f, 4f, 5f, 6f, 7f, 8f, 9f, 10f, 11f)
+        val dims = longArrayOf(4, 3, 1, 1)
+        Array(timeSeries, dims).use { arrayOfTimeSeries ->
+            Distances.squaredEuclidean(arrayOfTimeSeries).use { b ->
+                val result = b.getData<FloatArray>()
+                Assert.assertEquals(result[0].toDouble(), 0.0, DELTA)
+                Assert.assertEquals(result[1].toDouble(), 0.0, DELTA)
+                Assert.assertEquals(result[2].toDouble(), 0.0, DELTA)
+                Assert.assertEquals(result[3].toDouble(), 64.0, DELTA)
+                Assert.assertEquals(result[4].toDouble(), 0.0, DELTA)
+                Assert.assertEquals(result[5].toDouble(), 0.0, DELTA)
+                Assert.assertEquals(result[6].toDouble(), 256.0, DELTA)
+                Assert.assertEquals(result[7].toDouble(), 64.0, DELTA)
+                Assert.assertEquals(result[8].toDouble(), 0.0, DELTA)
             }
         }
     }
