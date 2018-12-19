@@ -15,10 +15,10 @@ package io.shapelets.khiva
 class Distances : Library() {
     companion object {
         @JvmStatic
-        private external fun euclidean(ref: Long): LongArray
+        private external fun dtw(ref: Long): LongArray
 
         @JvmStatic
-        private external fun dtw(ref: Long): LongArray
+        private external fun euclidean(ref: Long): LongArray
 
         @JvmStatic
         private external fun hamming(ref: Long): LongArray
@@ -27,21 +27,10 @@ class Distances : Library() {
         private external fun manhattan(ref: Long): LongArray
 
         @JvmStatic
-        private external fun squaredEuclidean(ref: Long): LongArray
+        private external fun sbd(ref: Long): LongArray
 
-        /**
-         * Calculates euclidean distances between time series.
-         *
-         * @param tss Array containing the input time series.
-         * @return Array with an upper triangular matrix where each position corresponds to the distance between two
-         * time series. Diagonal elements will be zero. For example: Position row 0 column 1 records the distance
-         * between time series 0 and time series 1.
-         */
-        fun euclidean(tss: Array): Array {
-            val refs = euclidean(tss.reference)
-            tss.reference = refs[0]
-            return Array(refs[1])
-        }
+        @JvmStatic
+        private external fun squaredEuclidean(ref: Long): LongArray
 
         /**
          * Calculates the Dynamic Time Warping Distance.
@@ -54,6 +43,20 @@ class Distances : Library() {
          */
         fun dtw(tss: Array): Array {
             val refs = dtw(tss.reference)
+            tss.reference = refs[0]
+            return Array(refs[1])
+        }
+
+        /**
+         * Calculates euclidean distances between time series.
+         *
+         * @param tss Array containing the input time series.
+         * @return Array with an upper triangular matrix where each position corresponds to the distance between two
+         * time series. Diagonal elements will be zero. For example: Position row 0 column 1 records the distance
+         * between time series 0 and time series 1.
+         */
+        fun euclidean(tss: Array): Array {
+            val refs = euclidean(tss.reference)
             tss.reference = refs[0]
             return Array(refs[1])
         }
@@ -84,6 +87,22 @@ class Distances : Library() {
          */
         fun manhattan(tss: Array): Array {
             val refs = manhattan(tss.reference)
+            tss.reference = refs[0]
+            return Array(refs[1])
+        }
+
+        /**
+         * Calculates the Shape-Based distance (SBD). It computes the normalized cross-correlation and it returns 1.0
+         * minus the value that maximizes the correlation value between each pair of time series.
+         *
+         * @param tss Expects an input array whose dimension zero is the length of the time series (all the same) and
+         * dimension one indicates the number of time series.
+         * @return Array with an upper triangular matrix where each position corresponds to the distance between two
+         * time series. Diagonal elements will be zero. For example: Position row 0 column 1 records the distance between time
+         * series 0 and time series 1.
+         */
+        fun sbd(tss: Array): Array {
+            val refs = sbd(tss.reference)
             tss.reference = refs[0]
             return Array(refs[1])
         }
