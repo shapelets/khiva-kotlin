@@ -254,8 +254,8 @@ class MatrixTest {
             val subsequenceIndex = findDiscords[2].getData<IntArray>()
 
             Assert.assertEquals(subsequenceIndex[0].toDouble(), 12.0, DELTA)
-            val os = System.getenv("TRAVIS_OS_NAME")
-            if (os == null || os != "osx") {
+            val os = System.getenv("TRAVIS")
+            if (os == null || os != "true") {
                 Assert.assertNotEquals(subsequenceIndex[1].toDouble(), 11.0, DELTA)
             } else {
                 Assert.assertEquals(subsequenceIndex[1].toDouble(), 11.0, DELTA)
