@@ -18,8 +18,8 @@ class ClusteringTest {
     @Test
     @Throws(Exception::class)
     fun testKMeans() {
-        val tss = floatArrayOf(0.0f, 1.0f, 2.0f, 3.0f, 6.0f,  7.0f,  8.0f, 9.0f, 2.0f, -2.0f, 4.0f, -4.0f,
-                8.0f, 5.0f,  3.0f,  1.0f,  15.0f, 10.0f, 5.0f, 0.0f, 7.0f, -7.0f,  1.0f, -1.0f)
+        val tss = floatArrayOf(0.0f, 1.0f, 2.0f, 3.0f, 6.0f, 7.0f, 8.0f, 9.0f, 2.0f, -2.0f, 4.0f, -4.0f,
+                8.0f, 5.0f, 3.0f, 1.0f, 15.0f, 10.0f, 5.0f, 0.0f, 7.0f, -7.0f, 1.0f, -1.0f)
         val dims = longArrayOf(4, 6, 1, 1)
 
         val tolerance = 1e-10f
@@ -61,7 +61,6 @@ class ClusteringTest {
     }
 
     companion object {
-
         @BeforeClass
         fun setUp() {
             Library.khivaBackend = Library.Backend.KHIVA_BACKEND_CPU
