@@ -10,7 +10,7 @@
 package io.shapelets.khiva
 
 /**
- * Khiva Clustering class containing several dimensionality reduction methods.
+ * Khiva Clustering class containing several clustering methods.
  */
 class Clustering : Library() {
     companion object {
