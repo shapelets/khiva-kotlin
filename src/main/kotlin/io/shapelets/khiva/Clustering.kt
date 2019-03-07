@@ -35,7 +35,7 @@ class Clustering : Library() {
          * @return An Array of arrays with the resulting centroids and labels.
          */
         fun kMeans(tss: Array, k: Int, tolerance: Float, maxInterations: Int): kotlin.Array<Array> {
-            val refs = kMeans(tss.reference, k, tolerance, maxInterations)
+            val refs = Clustering.kMeans(tss.reference, k, tolerance, maxInterations)
             tss.reference = refs[0]
             return arrayOf(Array(refs[1]), Array(refs[2]))
         }
@@ -50,11 +50,11 @@ class Clustering : Library() {
          * @param k                 The number of centroids.
          * @param tolerance         The maximum error tolerance.
          * @param maxIterations     The maximum number of iterations.
-         * 
+         *
          * @return An Array of arrays with the resulting centroids and labels.
          */
         fun kShape(tss: Array, k: Int, tolerance: Float, maxInterations: Int): kotlin.Array<Array>{
-            val refs = kShape(tss.reference, k, tolerance, maxInterations)
+            val refs = Clustering.kShape(tss.reference, k, tolerance, maxInterations)
             tss.reference = refs[0]
             return arrayOf(Array(refs[1]), Array(refs[2]))
         }
