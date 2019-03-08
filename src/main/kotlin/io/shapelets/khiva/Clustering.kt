@@ -13,7 +13,6 @@ package io.shapelets.khiva
  * Khiva Clustering class containing several clustering methods.
  */
 object Clustering : Library() {
-
     @JvmStatic
     private external fun kMeans(tss: Long, k: Int, tolerance: Float, maxInterations: Int): LongArray
 
