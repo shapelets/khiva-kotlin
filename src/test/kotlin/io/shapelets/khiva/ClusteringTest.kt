@@ -49,7 +49,6 @@ class ClusteringTest {
         val tolerance = 1e-10f
         val maxIterations = 100
         val k = 3
-        val clustering = Clustering()
 
         Array(tss, dims).use { a ->
             val kShapeResult = Clustering.kShape(a, k, tolerance, maxIterations)
