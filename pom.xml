@@ -9,7 +9,7 @@
     </properties>
     <groupId>io.shapelets</groupId>
     <artifactId>khiva-kotlin</artifactId>
-    <version>0.1.0</version>
+    <version>0.2.0</version>
 
     <name>khiva-kotlin</name>
     <url>https://github.com/shapelets/khiva-kotlin</url>
