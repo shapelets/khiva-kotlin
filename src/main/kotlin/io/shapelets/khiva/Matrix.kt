@@ -14,6 +14,12 @@ package io.shapelets.khiva
  */
 object Matrix : Library() {
     @JvmStatic
+    private external fun mass(query: Long, tss: Long): LongArray
+
+    @JvmStatic
+    private external fun findBestNOccurrences(query: Long, tss: Long, n: Long): LongArray
+
+    @JvmStatic
     private external fun stomp(a: Long, b: Long, m: Long): LongArray
 
     @JvmStatic
@@ -24,6 +30,62 @@ object Matrix : Library() {
 
     @JvmStatic
     private external fun findBestNDiscords(profile: Long, index: Long, m: Long, n: Long, selfJoin: Boolean): LongArray
+
+    /**
+     * Mueen's Algorithm for Similarity Search.
+     *
+     * The result has the following structure:
+     * - 1st dimension corresponds to the index of the subsequence in the time series.
+     * - 2nd dimension corresponds to the number of queries.
+     * - 3rd dimension corresponds to the number of time series.
+     *
+     * For example, the distance in the position (1, 2, 3) correspond to the distance of the third query to the fourth time
+     * series for the second subsequence in the time series.
+     *
+     * [1] Chin-Chia Michael Yeh, Yan Zhu, Liudmila Ulanova, Nurjahan Begum, Yifei Ding, Hoang Anh Dau, Diego Furtado Silva,
+     * Abdullah Mueen, Eamonn Keogh (2016). Matrix Profile I: All Pairs Similarity Joins for Time Series: A Unifying View
+     * that Includes Motifs, Discords and Shapelets. IEEE ICDM 2016.
+     *
+     * @param query Array whose first dimension is the length of the query time series and the second dimension is the
+     *              number of queries.
+     * @param tss   Array whose first dimension is the length of the time series and the second dimension is the number of
+     *              time series.
+     * @return Array with the distances.
+     */
+    fun mass(query: Array, tss: Array): Array {
+        val refs = mass(query.reference, tss.reference)
+        query.reference = refs[0]
+        tss.reference = refs[1]
+        return Array(refs[2])
+    }
+
+
+    /**
+     * Calculates the N best matches of several queries in several time series.
+     *
+     * The result has the following structure:
+     * - 1st dimension corresponds to the nth best match.
+     * - 2nd dimension corresponds to the number of queries.
+     * - 3rd dimension corresponds to the number of time series.
+     *
+     * For example, the distance in the position (1, 2, 3) corresponds to the second best distance of the third query in the
+     * fourth time series. The index in the position (1, 2, 3) is the is the index of the subsequence which leads to the
+     * second best distance of the third query in the fourth time series.
+     *
+     * @param query Array whose first dimension is the length of the query time series and the second dimension is the
+     *              number of queries.
+     * @param tss   Array whose first dimension is the length of the time series and the second dimension is the number of
+     *              time series.
+     * @param n     Number of matches to return.
+     * @return Array or arrays with the distances and indexes.
+     */
+    fun findBestNOccurrences(query: Array, tss: Array, n: Long): kotlin.Array<Array> {
+        val refs = findBestNOccurrences(query.reference, tss.reference, n)
+        query.reference = refs[0]
+        tss.reference = refs[1]
+        return arrayOf(Array(refs[2]), Array(refs[3]))
+    }
+
 
     /**
      * STOMP algorithm to calculate the matrix profile between 'arrA' and 'arrB' using a subsequence length
